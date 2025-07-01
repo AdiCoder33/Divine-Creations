@@ -1,0 +1,63 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #4a9fbb; /* Light blue */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #004080; /* Darker blue on hover */
+}
+
+.navbar-brand h2 {
+  margin: 0;
+  font-size: 24px;
+  color: white;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+/* Place in the same file: Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* New search box container */
+.navbar-search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 60%;
+  max-width: 400px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  outline: none;
+}
