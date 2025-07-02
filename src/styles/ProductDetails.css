@@ -1,0 +1,143 @@
+.product-detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+  gap: 30px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.image-thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image-thumbnails .thumb {
+  width: 60px;
+  height: 90px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.image-thumbnails .thumb.active {
+  border-color: #007aff;
+}
+
+.main-image-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.product-info {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.product-info h2 {
+  font-size: 28px;
+  margin: 8px 0;
+}
+
+.product-info h4 {
+  color: #888;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.product-info .desc {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.rating {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #222;
+}
+
+.colors {
+  margin: 20px 0 10px;
+}
+
+.color-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.color-thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.color-thumb.active {
+  border-color: #007aff;
+}
+
+.sizes {
+  margin: 20px 0;
+}
+
+.size-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.size-btn {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.size-btn.selected {
+  border-color: #007aff;
+  background-color: #e0f0ff;
+}
+
+.offer-box {
+  background-color: #ffe8d2;
+  padding: 10px;
+  margin-top: 20px;
+  border-left: 4px solid #ff7a00;
+}
+
+.action-section {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.select-size-btn {
+  background-color: #007aff;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+}

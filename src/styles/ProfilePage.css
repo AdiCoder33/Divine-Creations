@@ -1,56 +1,201 @@
-.profile-container {
-  display: flex;
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 0;
+.profile-wrapper {
+  margin: 120px auto 50px;
+  max-width: 1000px;
+  background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  background-color: white;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  border: 1px solid #ddd;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Sidebar styling */
-.profile-sidebar {
-  width: 250px;
+/* Tab Bar */
+.tab-bar {
   display: flex;
-  flex-direction: column;
-  border-right: 1px solid #ddd;
   background-color: #e3f2fd;
+  position: relative;
 }
 
-.profile-sidebar button {
-  padding: 14px 20px;
-  background-color: transparent;
-  color: #333;
-  border: none;
-  font-size: 16px;
-  text-align: left;
-  cursor: pointer;
-  border-bottom: 1px solid #cfd8dc;
-  transition: background-color 0.3s ease;
-}
-
-.profile-sidebar button:hover {
-  background-color: #bbdefb;
-}
-
-/* Active tab blends into the content panel */
-.profile-sidebar button.active {
-  background-color: white;
-  font-weight: bold;
-  border-right: none;
-  border-left: 4px solid #4a90e2;
-}
-
-/* Content panel */
-.profile-content {
+.tab-bar button {
   flex: 1;
-  padding: 30px;
-  background-color: white;
+  padding: 16px;
+  font-size: 16px;
+  background-color: #e3f2fd;
+  border: none;
+  cursor: pointer;
+  color: #1976d2;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid #90caf9;
+  z-index: 1;
+  position: relative;
 }
 
-.profile-section h2 {
-  color: #4a148c;
-  margin-bottom: 15px;
+.tab-bar button.active {
+  background-color: white;
+  color: #0d47a1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+  z-index: 2;
+}
+
+/* Content Area */
+.content-area {
+  padding: 30px 40px;
+  background-color: white;
+  position: relative;
+  z-index: 0;
+}
+
+.tab-content h2 {
+  margin-bottom: 20px;
+  color: #0d47a1;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.tab-content p,
+.tab-content ul {
+  margin: 10px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.tab-content ul {
+  list-style: disc inside;
+}
+
+/* User Details Section Header */
+.user-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+/* Shared grid for view and edit */
+.user-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 30px;
+  font-size: 15px;
+  color: #333;
+  max-width: 700px;
+}
+
+.user-details p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.user-details p strong {
+  color: #0d47a1;
+}
+
+/* Inline input/select inside p */
+.user-details input,
+.user-details select {
+  font-size: 14px;
+  padding: 6px 10px;
+  border: 1px solid #b0bec5;
+  border-radius: 5px;
+  margin-top: 4px;
+  width: 100%;
+}
+
+.user-details input:focus,
+.user-details select:focus {
+  outline: none;
+  border-color: #1976d2;
+}
+
+/* Optional subtle dividers */
+.user-details p:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 6px;
+}
+
+/* Buttons */
+.edit-btn,
+.save-btn {
+  margin-top: 20px;
+  background-color: #1976d2;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  width: fit-content;
+  transition: background 0.3s;
+}
+
+.edit-btn:hover,
+.save-btn:hover {
+  background-color: #0d47a1;
+}
+
+/* Top-right positioning for edit button */
+.top-right {
+  margin-left: auto;
+}
+/* -------------------- My Orders Styles -------------------- */
+
+.order-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.order-card:hover {
+  background-color: #f1faff;
+}
+
+.order-summary {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 15px;
+  color: #333;
+}
+
+.order-summary p {
+  margin: 4px 0;
+  flex: 1 1 30%;
+}
+
+.tracking-info {
+  margin-top: 12px;
+  padding-left: 10px;
+  border-left: 3px solid #1976d2;
+  animation: slideDown 0.3s ease;
+}
+
+.tracking-step {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+}
+
+.tracking-step .bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #1976d2;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+  
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
