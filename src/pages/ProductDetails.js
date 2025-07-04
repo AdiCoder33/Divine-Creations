@@ -25,8 +25,21 @@ const product = {
 
 const ProductDetailsPage = () => {
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
-  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  const [quantity, setQuantity] = useState(1);
+
+  const changeQty = (delta) => {
+    setQuantity((q) => Math.max(1, q + delta));
+  };
+
+  const handleAddToCart = () => {
+    alert(`Added ${quantity} item(s) to cart`);
+  };
+
+  const handleBuyNow = () => {
+    alert('Proceeding to checkout');
+  };
 
   return (
     <div className="product-detail-container">
@@ -88,15 +101,37 @@ const ProductDetailsPage = () => {
           </div>
         </div>
 
+        <div className="price-box">
+          <span className="price">₹{product.price}</span>
+          <span className="in-stock">In stock</span>
+        </div>
+
+        <div className="quantity">
+          <p><strong>Qty:</strong></p>
+          <div className="qty-controls">
+            <button className="qty-btn" onClick={() => changeQty(-1)}>-</button>
+            <span>{quantity}</span>
+            <button className="qty-btn" onClick={() => changeQty(1)}>+</button>
+          </div>
+        </div>
+
         <div className="offer-box">
           <p><strong>{product.offer}</strong></p>
           <small>Discount applied in cart</small>
         </div>
 
         <div className="action-section">
-          <button className="select-size-btn">SELECT SIZE</button>
-          <span className="price">₹{product.price}</span>
+          <button className="cart-btn" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
+          <button className="buy-btn" onClick={handleBuyNow}>Buy Now</button>
         </div>
+
+        <ul className="features">
+          <li>Reusable artificial flowers</li>
+          <li>Handcrafted with care</li>
+          <li>Perfect for weddings and pujas</li>
+        </ul>
       </div>
     </div>
   );

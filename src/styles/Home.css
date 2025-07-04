@@ -41,20 +41,54 @@
 }
 
 /* Product Section */
+.products-section {
+  background: #fafafd;
+  padding: 40px 0;
+}
+
 .section-title {
   text-align: center;
   font-size: 28px;
   color: #4a148c;
-  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.see-all-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ff4081;
+  border-radius: 12px;
+  transition: background-color 0.2s;
+}
+
+.see-all-card:hover {
+  background-color: #ffeef6;
+}
+
+.see-all-link {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.see-all-box p {
+  font-weight: bold;
+  color: #4a148c;
+  font-size: 18px;
 }
 
 /* 🔵 Info Section Styling */
