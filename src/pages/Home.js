@@ -57,8 +57,9 @@ const Home = () => {
       </div>
 
       {/* Products Section */}
-      <h1 className="section-title">Flower Garlands Collection</h1>
-      <div className="product-grid">
+      <section className="products-section">
+        <h1 className="section-title">Flower Garlands Collection</h1>
+        <div className="product-grid">
         {/* Real products (max 9 shown) */}
         {products.slice(0, 9).map((p) => (
           <ProductCard key={p.id} product={p} />
@@ -106,7 +107,7 @@ const Home = () => {
             </div>
           </Link>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
