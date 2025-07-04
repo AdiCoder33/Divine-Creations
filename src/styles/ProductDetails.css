@@ -119,76 +119,25 @@
   border-left: 4px solid #ff7a00;
 }
 
-.price-box {
-  margin: 20px 0 10px;
+.action-section {
+  margin-top: 20px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
+}
+
+.select-size-btn {
+  background-color: #007aff;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .price {
   font-size: 22px;
   font-weight: bold;
-  color: #4a148c;
-}
-
-.in-stock {
-  color: #4caf50;
-  font-weight: bold;
-}
-
-.quantity {
-  margin: 20px 0;
-}
-
-.qty-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 5px;
-}
-
-.qty-btn {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #ccc;
-  background: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.action-section {
-  margin-top: 20px;
-  display: flex;
-  gap: 10px;
-}
-
-.cart-btn,
-.buy-btn {
-  flex: 1;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  color: #fff;
-  font-weight: bold;
-}
-
-.cart-btn {
-  background-color: #2196f3;
-}
-
-.buy-btn {
-  background-color: #ff4081;
-}
-
-.features {
-  margin-top: 20px;
-  list-style: disc inside;
-  padding-left: 0;
-}
-
-.features li {
-  margin-bottom: 6px;
 }

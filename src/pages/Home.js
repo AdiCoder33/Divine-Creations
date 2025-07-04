@@ -4,41 +4,73 @@ import ProductCard from "../components/ProductCard";
 import { Link } from "react-router-dom";
 import "../styles/Home.css";
 
-// Images shown in the hero carousel
-const heroImages = [
+// ✅ Image arrays
+const mainCarouselImages = [
   "/images/garland1.jpg",
   "/images/garland2.jpg",
   "/images/garland3.jpg",
   "/images/garland4.jpg",
 ];
 
+const verticalCarousel1 = [
+  "/images/side1.jpg",
+  "/images/side2.jpg",
+  "/images/side3.jpg",
+];
+
+const verticalCarousel2 = [
+  "/images/side4.jpg",
+  "/images/side5.jpg",
+  "/images/side6.jpg",
+];
+
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [index, setIndex] = useState(0);
+  const [mainIndex, setMainIndex] = useState(0);
+  const [side1Index, setSide1Index] = useState(0);
+  const [side2Index, setSide2Index] = useState(0);
 
   useEffect(() => {
     axios.get("http://localhost:8000/products").then((res) => {
       setProducts(res.data);
     });
 
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % heroImages.length);
-    }, 3500);
+    const mainInterval = setInterval(() => {
+      setMainIndex((prev) => (prev + 1) % mainCarouselImages.length);
+    }, 3000);
 
-    return () => clearInterval(interval);
+    const side1Interval = setInterval(() => {
+      setSide1Index((prev) => (prev + 1) % verticalCarousel1.length);
+    }, 2500);
+
+    const side2Interval = setInterval(() => {
+      setSide2Index((prev) => (prev + 1) % verticalCarousel2.length);
+    }, 2500);
+
+    return () => {
+      clearInterval(mainInterval);
+      clearInterval(side1Interval);
+      clearInterval(side2Interval);
+    };
   }, []);
 
   return (
     <div className="home">
-      {/* Hero Section */}
-      <section className="hero">
-        <img src={heroImages[index]} className="hero-img" alt="Divine Garland" />
-        <div className="hero-overlay">
-          <h1>Divine Creations</h1>
-          <p>Colorful artificial flower garlands for every celebration</p>
-          <Link to="/products" className="hero-button">Shop Now</Link>
+      {/* Carousel Section */}
+      <div className="carousel-section">
+        <div className="main-carousel">
+          <img src={mainCarouselImages[mainIndex]} alt="Main Carousel" />
         </div>
-      </section>
+
+        <div className="side-carousels">
+          <div className="side-carousel">
+            <img src={verticalCarousel1[side1Index]} alt="Side Carousel 1" />
+          </div>
+          <div className="side-carousel">
+            <img src={verticalCarousel2[side2Index]} alt="Side Carousel 2" />
+          </div>
+        </div>
+      </div>
 
       {/* 🔵 Info Section about the brand */}
       <div className="info-section">
@@ -57,9 +89,8 @@ const Home = () => {
       </div>
 
       {/* Products Section */}
-      <section className="products-section">
-        <h1 className="section-title">Flower Garlands Collection</h1>
-        <div className="product-grid">
+      <h1 className="section-title">Flower Garlands Collection</h1>
+      <div className="product-grid">
         {/* Real products (max 9 shown) */}
         {products.slice(0, 9).map((p) => (
           <ProductCard key={p.id} product={p} />
@@ -107,7 +138,7 @@ const Home = () => {
             </div>
           </Link>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
